@@ -3,6 +3,7 @@ from pathlib import Path
 
 import pandas as pd
 
+from feature_engineering import engineer_features, save_feature_data
 
 logger = logging.getLogger(__name__)
 
@@ -22,11 +23,12 @@ def configure_logging(log_file):
     file_handler.setLevel(logging.DEBUG)
     file_handler.setFormatter(formatter)
 
-    logger.setLevel(logging.DEBUG)
+    root_logger = logging.getLogger()
+    root_logger.setLevel(logging.DEBUG)
 
-    if not logger.handlers:
-        logger.addHandler(console_handler)
-        logger.addHandler(file_handler)
+    if not root_logger.handlers:
+       root_logger.addHandler(console_handler)
+       root_logger.addHandler(file_handler)
 
 def load_data(file_path):
     try:
@@ -289,6 +291,13 @@ def main():
         / "cleaned_traffic_data.csv"
     )
 
+    feature_output_file = (
+    base_dir
+    / "data"
+    / "processed"
+    / "traffic_features.csv"
+    )
+
     log_file = base_dir / "pipeline.log"
 
     configure_logging(log_file)
@@ -316,10 +325,21 @@ def main():
         logger.error("Pipeline stopped because the cleaned dataset could not be saved.")
         return
 
+    feature_df = engineer_features(df.copy())
+
+    if not save_feature_data(
+       feature_df,
+       feature_output_file
+     ):
+       logger.error(
+        "Pipeline stopped because the feature-engineered dataset could not be saved."
+       )
+       return
+
     logger.info(
         "Traffic data pipeline completed successfully: %d rows, %d columns.",
-        df.shape[0],
-        df.shape[1]
+        feature_df.shape[0],
+        feature_df.shape[1]
     )
 
 
