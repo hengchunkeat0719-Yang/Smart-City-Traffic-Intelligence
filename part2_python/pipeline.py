@@ -5,6 +5,12 @@ import pandas as pd
 
 from feature_engineering import engineer_features, save_feature_data
 
+from visualizations import (
+    plot_traffic_by_hour,
+    plot_weekday_vs_weekend,
+    plot_traffic_by_weather
+)
+
 logger = logging.getLogger(__name__)
 
 def configure_logging(log_file):
@@ -298,6 +304,24 @@ def main():
     / "traffic_features.csv"
     )
 
+    figure_hourly = (
+    base_dir
+    / "figures"
+    / "average_traffic_by_hour.png"
+    )
+
+    figure_weekend = (
+    base_dir
+    / "figures"
+    / "weekday_vs_weekend_traffic.png"
+    )
+
+    figure_weather = (
+    base_dir
+    / "figures"
+    / "traffic_by_weather_condition.png"
+    )
+
     log_file = base_dir / "pipeline.log"
 
     configure_logging(log_file)
@@ -328,13 +352,28 @@ def main():
     feature_df = engineer_features(df.copy())
 
     if not save_feature_data(
-       feature_df,
-       feature_output_file
-     ):
-       logger.error(
-        "Pipeline stopped because the feature-engineered dataset could not be saved."
-       )
-       return
+        feature_df,
+        feature_output_file
+    ):
+        logger.error(
+            "Pipeline stopped because the feature-engineered dataset could not be saved."
+        )
+        return
+
+    plot_traffic_by_hour(
+        feature_df,
+        figure_hourly
+    )
+
+    plot_weekday_vs_weekend(
+        feature_df,
+        figure_weekend
+    )
+
+    plot_traffic_by_weather(
+        feature_df,
+        figure_weather
+    )
 
     logger.info(
         "Traffic data pipeline completed successfully: %d rows, %d columns.",
