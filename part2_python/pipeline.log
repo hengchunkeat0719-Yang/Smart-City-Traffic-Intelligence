@@ -1,0 +1,14 @@
+2026-09-12 22:55:39,803 - INFO - __main__ - Traffic data pipeline started.
+2026-09-12 22:55:39,913 - INFO - __main__ - Raw data loaded successfully: 48204 rows, 9 columns
+2026-09-12 22:55:39,918 - INFO - __main__ - Schema validation passed. All expected columns are present.
+2026-09-12 22:55:40,068 - WARNING - __main__ - 17 exact duplicate rows were removed.
+2026-09-12 22:55:40,130 - INFO - __main__ - All date_time values were parsed successfully.
+2026-09-12 22:55:40,152 - WARNING - __main__ - 48126 missing holiday values were replaced with 'None'.
+2026-09-12 22:55:40,190 - INFO - __main__ - Categorical values were standardised for: ['holiday', 'weather_main', 'weather_description']
+2026-09-12 22:55:40,230 - WARNING - __main__ - 10 zero-Kelvin temperature readings were imputed using monthly medians.
+2026-09-12 22:55:40,262 - WARNING - __main__ - 1 extreme rainfall readings were imputed using monthly medians.
+2026-09-12 22:55:40,267 - INFO - __main__ - No invalid snow_1h values were found.
+2026-09-12 22:55:40,268 - INFO - __main__ - All clouds_all values are within the 0-100 range.
+2026-09-12 22:55:40,269 - INFO - __main__ - No negative traffic_volume values were found.
+2026-09-12 22:55:40,799 - INFO - __main__ - Cleaned dataset saved successfully to C:\Users\hengc\OneDrive\Documents\AI ML Data Science Programme\Capstone\Capstone Work\Smart-City-Traffic-Intelligence-Local\Smart-City-Traffic-Intelligence\part2_python\data\processed\cleaned_traffic_data.csv
+2026-09-12 22:55:40,800 - INFO - __main__ - Traffic data pipeline completed successfully: 48187 rows, 10 columns.

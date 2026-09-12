@@ -11,6 +11,7 @@ venv/
 
 # Log files
 *.log
+!part2_python/pipeline.log
 
 # Windows files
 Thumbs.db
