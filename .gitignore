@@ -12,6 +12,7 @@ venv/
 # Log files
 *.log
 !part2_python/pipeline.log
+!part2_python/cli_app/traffic_cli.log
 
 # Windows files
 Thumbs.db

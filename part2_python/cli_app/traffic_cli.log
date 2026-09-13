@@ -1,0 +1,9 @@
+2026-09-13 21:02:30,695 - INFO - __main__ - Processed dataset loaded successfully: 48187 rows, 30 columns
+2026-09-13 21:02:30,709 - INFO - __main__ - Command invoked: high-traffic
+2026-09-13 21:03:45,052 - INFO - __main__ - Processed dataset loaded successfully: 48187 rows, 30 columns
+2026-09-13 21:03:45,054 - INFO - __main__ - Command invoked: compare-weekend
+2026-09-13 21:04:52,960 - INFO - __main__ - Processed dataset loaded successfully: 48187 rows, 30 columns
+2026-09-13 21:04:52,965 - INFO - __main__ - Command invoked: query-time with argument: 2017-01-01 08:00:00
+2026-09-13 21:05:49,280 - INFO - __main__ - Processed dataset loaded successfully: 48187 rows, 30 columns
+2026-09-13 21:05:49,290 - INFO - __main__ - Command invoked: query-time with argument: not-a-date
+2026-09-13 21:05:49,293 - ERROR - __main__ - Invalid date/time supplied: not-a-date
