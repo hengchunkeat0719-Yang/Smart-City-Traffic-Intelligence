@@ -1,18 +1,39 @@
 # Python temporary files
 __pycache__/
-*.pyc
+*.py[cod]
 
-# Virtual environment
+# Jupyter temporary files
+.ipynb_checkpoints/
+
+# Virtual environments
 .venv/
 venv/
+env/
 
 # API keys / secrets
 .env
+.env.*
+!.env.example
 
 # Log files
 *.log
 !part2_python/pipeline.log
 !part2_python/cli_app/traffic_cli.log
 
-# Windows files
+# Temporary / backup files
+*.tmp
+*.temp
+*.bak
+~$*
+
+# Windows / operating-system files
 Thumbs.db
+desktop.ini
+.DS_Store
+
+# IDE/editor files
+.vscode/
+.idea/
+
+# Local MLflow artifact storage
+mlflow_artifacts/
